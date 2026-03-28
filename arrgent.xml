@@ -12,7 +12,7 @@
   <Category>Tools: MediaApp:Other</Category>
   <WebUI/>
   <TemplateURL>https://raw.githubusercontent.com/blackevil2oo1/arrgent/main/arrgent.xml</TemplateURL>
-  <Icon>https://raw.githubusercontent.com/blackevil2oo1/arrgent/main/static/icon.png</Icon>
+  <Icon>https://raw.githubusercontent.com/blackevil2oo1/arrgent/main/static/icon.svg</Icon>
   <ExtraParams/>
   <PostArgs/>
   <CPUset/>
