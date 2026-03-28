@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>arrgent</Name>
+  <Repository>blackevil2oo1/arrgent:latest</Repository>
+  <Registry>https://hub.docker.com/r/blackevil2oo1/arrgent</Registry>
+  <Network>host</Network>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/blackevil2oo1/arrgent/issues</Support>
+  <Project>https://github.com/blackevil2oo1/arrgent</Project>
+  <Overview>Arrgent – Telegram Bot für den *arr Medien-Stack. Steuert Radarr, Sonarr, SABnzbd, Jellyfin, Calibre und Audiobookshelf per Telegram-Chat mit KI-Unterstützung.</Overview>
+  <Category>Tools: MediaApp:Other</Category>
+  <WebUI/>
+  <TemplateURL>https://raw.githubusercontent.com/blackevil2oo1/arrgent/main/arrgent.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/blackevil2oo1/arrgent/main/static/icon.png</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled/>
+  <DonateText/>
+  <DonateLink/>
+  <Requires/>
+
+  <!-- Telegram -->
+  <Config Name="Telegram Bot Token" Target="TELEGRAM_BOT_TOKEN" Default="" Mode="" Description="Bot Token von @BotFather" Type="Variable" Display="always" Required="true" Mask="true"></Config>
+  <Config Name="Telegram Admin Chat ID" Target="TELEGRAM_ADMIN_CHAT_ID" Default="" Mode="" Description="Chat-ID deines privaten Chats mit dem Bot" Type="Variable" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="Telegram User Group ID" Target="TELEGRAM_USER_GROUP_ID" Default="" Mode="" Description="Chat-ID der Gruppe" Type="Variable" Display="always" Required="false" Mask="false"></Config>
+
+  <!-- OpenAI -->
+  <Config Name="OpenAI API Key" Target="OPENAI_API_KEY" Default="" Mode="" Description="OpenAI API Key" Type="Variable" Display="always" Required="false" Mask="true"></Config>
+  <Config Name="OpenAI Modell" Target="OPENAI_MODEL" Default="gpt-4o" Mode="" Description="OpenAI Modell (Standard: gpt-4o)" Type="Variable" Display="always" Required="false" Mask="false">gpt-4o</Config>
+
+  <!-- TMDB -->
+  <Config Name="TMDB API Key" Target="TMDB_API_KEY" Default="" Mode="" Description="API Key von themoviedb.org – für Film/Serien-Empfehlungen" Type="Variable" Display="always" Required="false" Mask="true"></Config>
+
+  <!-- App-Schalter -->
+  <Config Name="Radarr aktiv" Target="RADARR_ENABLED" Default="true" Mode="" Description="Filme-Funktionen aktivieren (true/false)" Type="Variable" Display="always" Required="false" Mask="false">true</Config>
+  <Config Name="Sonarr aktiv" Target="SONARR_ENABLED" Default="true" Mode="" Description="Serien-Funktionen aktivieren (true/false)" Type="Variable" Display="always" Required="false" Mask="false">true</Config>
+  <Config Name="Jellyfin aktiv" Target="JELLYFIN_ENABLED" Default="true" Mode="" Description="Jellyfin-Benachrichtigungen aktivieren (true/false)" Type="Variable" Display="always" Required="false" Mask="false">true</Config>
+  <Config Name="Calibre aktiv" Target="CALIBRE_ENABLED" Default="true" Mode="" Description="Ebook-Funktionen aktivieren (true/false)" Type="Variable" Display="always" Required="false" Mask="false">true</Config>
+  <Config Name="Audiobookshelf aktiv" Target="AUDIOBOOKSHELF_ENABLED" Default="true" Mode="" Description="Hörbuch-Funktionen aktivieren (true/false)" Type="Variable" Display="always" Required="false" Mask="false">true</Config>
+
+  <!-- Radarr -->
+  <Config Name="Radarr URL" Target="RADARR_URL" Default="http://tower:7878" Mode="" Description="Radarr URL" Type="Variable" Display="always" Required="false" Mask="false"></Config>
+  <Config Name="Radarr API Key" Target="RADARR_API_KEY" Default="" Mode="" Description="Radarr API Key (Einstellungen → Allgemein)" Type="Variable" Display="always" Required="false" Mask="true"></Config>
+
+  <!-- Sonarr -->
+  <Config Name="Sonarr URL" Target="SONARR_URL" Default="http://tower:8989" Mode="" Description="Sonarr URL" Type="Variable" Display="always" Required="false" Mask="false"></Config>
+  <Config Name="Sonarr API Key" Target="SONARR_API_KEY" Default="" Mode="" Description="Sonarr API Key (Einstellungen → Allgemein)" Type="Variable" Display="always" Required="false" Mask="true"></Config>
+
+  <!-- Jellyfin -->
+  <Config Name="Jellyfin URL" Target="JELLYFIN_URL" Default="http://tower:8096" Mode="" Description="Jellyfin URL" Type="Variable" Display="always" Required="false" Mask="false"></Config>
+  <Config Name="Jellyfin API Key" Target="JELLYFIN_API_KEY" Default="" Mode="" Description="Jellyfin API Key (Dashboard → API-Schlüssel)" Type="Variable" Display="always" Required="false" Mask="true"></Config>
+
+  <!-- SABnzbd -->
+  <Config Name="SABnzbd URL" Target="SABNZBD_URL" Default="http://tower:8080" Mode="" Description="SABnzbd URL" Type="Variable" Display="always" Required="false" Mask="false"></Config>
+  <Config Name="SABnzbd API Key" Target="SABNZBD_API_KEY" Default="" Mode="" Description="SABnzbd API Key (Einstellungen → Allgemein)" Type="Variable" Display="always" Required="false" Mask="true"></Config>
+
+  <!-- SceneNZB -->
+  <Config Name="SceneNZB URL" Target="SCENENZB_URL" Default="https://scenenzbs.com" Mode="" Description="SceneNZB URL" Type="Variable" Display="always" Required="false" Mask="false">https://scenenzbs.com</Config>
+  <Config Name="SceneNZB API Key" Target="SCENENZB_API_KEY" Default="" Mode="" Description="SceneNZB API Key" Type="Variable" Display="always" Required="false" Mask="true"></Config>
+
+  <!-- Audiobookshelf -->
+  <Config Name="Audiobookshelf URL" Target="AUDIOBOOKSHELF_URL" Default="http://tower:13378" Mode="" Description="Audiobookshelf URL" Type="Variable" Display="always" Required="false" Mask="false"></Config>
+  <Config Name="Audiobookshelf Token" Target="AUDIOBOOKSHELF_TOKEN" Default="" Mode="" Description="Audiobookshelf API Token (Einstellungen → API Token)" Type="Variable" Display="always" Required="false" Mask="true"></Config>
+
+  <!-- Bücher & Hörbücher -->
+  <Config Name="Book Users" Target="BOOK_USERS" Default="" Mode="" Description="User-Liste kommagetrennt (z.B. Tim,Lina)" Type="Variable" Display="always" Required="false" Mask="false"></Config>
+
+  <!-- Webhook -->
+  <Config Name="Webhook Port" Target="WEBHOOK_PORT" Default="9000" Mode="" Description="Webhook Port für Jellyfin-Benachrichtigungen" Type="Variable" Display="always" Required="false" Mask="false">9000</Config>
+  <Config Name="Webhook Port (Host)" Target="9000" Default="9000" Mode="tcp" Description="Port-Mapping für Jellyfin-Webhooks" Type="Port" Display="always" Required="false" Mask="false">9000</Config>
+
+</Container>

@@ -1,0 +1,14 @@
+services:
+  seedbox-agent:
+    build: .
+    container_name: seedbox-agent
+    restart: unless-stopped
+    env_file:
+      - .env
+    # network_mode: host → Container nutzt das Host-Netzwerk direkt.
+    # Damit kann er alle Dienste auf Unraid erreichen (Radarr, Sonarr, etc.)
+    # Port 9000 ist automatisch auf dem Host erreichbar (kein separates ports-Mapping nötig)
+    network_mode: host
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock  # Docker-Überwachung
+      - ./logs:/app/logs                           # Log-Dateien auf dem Host persistieren
