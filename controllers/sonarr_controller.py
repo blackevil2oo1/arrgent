@@ -50,7 +50,7 @@ class SonarrController(BaseController):
             timeout=15,
         )
         response.raise_for_status()
-        return [{"profile_id": p["id"], "name": p["name"]} for p in response.json()]
+        return [{"id": p["id"], "name": p["name"]} for p in response.json()]
 
     def add_series(self, tvdb_id: int, title: str, year: int, quality_profile_id: int) -> dict:
         """

@@ -52,9 +52,9 @@ _RADARR_TOOLS = [
         "function": {
             "name": "get_radarr_quality_profiles",
             "description": (
-                "Gibt die verfügbaren Qualitätsprofile aus Radarr zurück – jedes mit 'profile_id' und 'name'. "
+                "Gibt die verfügbaren Qualitätsprofile aus Radarr zurück – jedes mit 'id' und 'name'. "
                 "Vor add_movie aufrufen. Die Profile dem User mit Namen auflisten (z.B. '1. HD-1080p  2. 4K'). "
-                "Wenn der User ein Profil wählt, den 'profile_id'-Wert aus dem Ergebnis für quality_profile_id verwenden – "
+                "Wenn der User ein Profil wählt, den 'id'-Wert aus dem Ergebnis für quality_profile_id verwenden – "
                 "NIEMALS die Positionsnummer in der Liste (1, 2, 3…) als ID benutzen."
             ),
             "parameters": {"type": "object", "properties": {}, "required": []},
@@ -67,8 +67,8 @@ _RADARR_TOOLS = [
             "description": (
                 "Fügt einen Film zu Radarr hinzu und startet den Download. "
                 "Ablauf: 1) get_radarr_quality_profiles aufrufen, 2) Profile dem User zeigen, "
-                "3) User wählt Profil, 4) den 'profile_id'-Wert des gewählten Profils als quality_profile_id übergeben, "
-                "5) add_movie aufrufen. WICHTIG: quality_profile_id ist der 'profile_id'-Wert aus dem API-Ergebnis, "
+                "3) User wählt Profil, 4) den 'id'-Wert des gewählten Profils als quality_profile_id übergeben, "
+                "5) add_movie aufrufen. WICHTIG: quality_profile_id ist der 'id'-Wert aus dem API-Ergebnis, "
                 "nicht die Nummer in der angezeigten Liste."
             ),
             "parameters": {
@@ -77,7 +77,7 @@ _RADARR_TOOLS = [
                     "tmdb_id": {"type": "integer", "description": "TMDB ID des Films"},
                     "title": {"type": "string", "description": "Titel des Films"},
                     "year": {"type": "integer", "description": "Erscheinungsjahr"},
-                    "quality_profile_id": {"type": "integer", "description": "Der 'profile_id'-Wert aus dem get_radarr_quality_profiles Ergebnis – nicht die Listennummer"},
+                    "quality_profile_id": {"type": "integer", "description": "Der 'id'-Wert aus dem get_radarr_quality_profiles Ergebnis – nicht die Listennummer"},
                 },
                 "required": ["tmdb_id", "title", "year", "quality_profile_id"],
             },
@@ -105,9 +105,9 @@ _SONARR_TOOLS = [
         "function": {
             "name": "get_sonarr_quality_profiles",
             "description": (
-                "Gibt die verfügbaren Qualitätsprofile aus Sonarr zurück – jedes mit 'profile_id' und 'name'. "
+                "Gibt die verfügbaren Qualitätsprofile aus Sonarr zurück – jedes mit 'id' und 'name'. "
                 "Vor add_series aufrufen. Die Profile dem User mit Namen auflisten (z.B. '1. HD-1080p  2. 4K'). "
-                "Wenn der User ein Profil wählt, den 'profile_id'-Wert aus dem Ergebnis für quality_profile_id verwenden – "
+                "Wenn der User ein Profil wählt, den 'id'-Wert aus dem Ergebnis für quality_profile_id verwenden – "
                 "NIEMALS die Positionsnummer in der Liste (1, 2, 3…) als ID benutzen."
             ),
             "parameters": {"type": "object", "properties": {}, "required": []},
@@ -121,8 +121,8 @@ _SONARR_TOOLS = [
                 "Fügt eine Serie zu Sonarr hinzu und startet den Download aller Episoden. "
                 "Ablauf: 1) search_series aufrufen, 2) get_sonarr_quality_profiles aufrufen, "
                 "3) Profile dem User zeigen, 4) User wählt Profil, "
-                "5) den 'profile_id'-Wert des gewählten Profils als quality_profile_id übergeben, 6) add_series aufrufen. "
-                "WICHTIG: quality_profile_id ist der 'profile_id'-Wert aus dem API-Ergebnis, "
+                "5) den 'id'-Wert des gewählten Profils als quality_profile_id übergeben, 6) add_series aufrufen. "
+                "WICHTIG: quality_profile_id ist der 'id'-Wert aus dem API-Ergebnis, "
                 "nicht die Nummer in der angezeigten Liste."
             ),
             "parameters": {
@@ -131,7 +131,7 @@ _SONARR_TOOLS = [
                     "tvdb_id": {"type": "integer", "description": "TVDB ID der Serie"},
                     "title": {"type": "string", "description": "Titel der Serie"},
                     "year": {"type": "integer", "description": "Erscheinungsjahr"},
-                    "quality_profile_id": {"type": "integer", "description": "Der 'profile_id'-Wert aus dem get_sonarr_quality_profiles Ergebnis – nicht die Listennummer"},
+                    "quality_profile_id": {"type": "integer", "description": "Der 'id'-Wert aus dem get_sonarr_quality_profiles Ergebnis – nicht die Listennummer"},
                 },
                 "required": ["tvdb_id", "title", "year", "quality_profile_id"],
             },
